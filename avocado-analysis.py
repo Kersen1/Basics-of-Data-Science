@@ -5,10 +5,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
+#Some libraries we will be using in this project.
+#We use "as pd,np,plt" to not get stiff hands.
+#It's just a common practice actually.
+
 path = kagglehub.dataset_download("neuromusic/avocado-prices")
 print("Path to dataset files:", path)
 df = pd.read_csv(os.path.join(path, "avocado.csv"))
 print(df.head())
+#Shoutout to the database creator.
+#It would take me years to count all of these avocados.
+#Here we use API to access the database. You will need to create your own API key on kaggle or just download the database.
+#Anyway, after connecting and downloading the database using kagglehub functions we check where out computer has the saving space set as.
+#After checking for the place.
+# We use pandas.read_csv and join the path to avocado.csv because pd.read_cvs needs to connect to the appropriate csv file and we know the path because we printed it earlier.
+
 
 #2 Create dictionary data structure and data frame
 dictionary = {
@@ -20,6 +31,11 @@ df_dictionary = pd.DataFrame(dictionary)
 print("\nExample of the Data Frame from the dictionary")
 print(df_dictionary)
 
+#Did you know that dictionaries are ordered since Python 3.7? Cool...
+#Dictionaries are really cool because they allow us to get a shortcut into finding keys to known values.
+# For example If we want to know what type our avocados are we will access this information using dictionary["type"].
+#Using that method here would give us an array containing three items.
+
 #3 Create Data frame from list of lists
 
 list_ex = [
@@ -30,6 +46,8 @@ list_ex = [
 df_list = pd.DataFrame(list_ex, columns=["type", "region", "AveragePrice"])
 print("\nExample of the Data Frame from the list of lists")
 print(df_list)
+#Here we create a matrix 3x3 and then create a readable DataFrame choosing the names for columns
+#It works because we have three column names.
 
 #4 Load data from CSV and XLSX files
 df.to_csv("avocado.csv", index=False)
